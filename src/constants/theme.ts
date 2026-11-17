@@ -1,27 +1,47 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://unistyl.es/), etc.
+ * Semantic colors used across the app, for light and dark mode.
+ * They are mapped from the brand scale in `@/constants/palette`; change shades there,
+ * change roles here.
  */
 
 import '@/global.css';
 
 import { Platform } from 'react-native';
 
+import { Palette, StatusColors } from '@/constants/palette';
+
+function semanticColors(mode: 'light' | 'dark') {
+  const p = Palette[mode];
+  return {
+    // Text
+    text: mode === 'light' ? p[900] : p[800],
+    textSecondary: p[700],
+    // Surfaces
+    background: p[100],
+    backgroundElement: p[200],
+    backgroundSelected: p[300],
+    cardBackground: p[200],
+    // Lines and effects
+    border: p[800],
+    tint: p[400],
+    shadow: mode === 'light' ? p[600] : p[900],
+    // Navigation
+    tabIconDefault: p[500],
+    tabIconSelected: p[800],
+    // Actions
+    accent: p[700],
+    primaryBtnBackground: p[700],
+    secondaryBtnBackground: p[400],
+    buttonText: p[100],
+    // Status
+    success: StatusColors[mode].success,
+    danger: StatusColors[mode].danger,
+  };
+}
+
 export const Colors = {
-  light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-  },
-  dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
-  },
+  light: semanticColors('light'),
+  dark: semanticColors('dark'),
 } as const;
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;

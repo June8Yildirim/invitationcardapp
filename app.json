@@ -1,16 +1,18 @@
 {
   "expo": {
-    "name": "InvitationCardApp",
-    "slug": "InvitationCardApp",
+    "name": "ReactNativeSetup",
+    "slug": "reactnativesetup",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "invitationcardapp",
+    "scheme": "reactnativesetup",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.yildirim.cuneyt.it.ReactNativeSetup"
     },
     "android": {
+      "package": "com.yildirim.cuneyt.it.reactnativesetup",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -32,7 +34,8 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
